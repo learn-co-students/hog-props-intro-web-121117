@@ -17,12 +17,13 @@ class MasterHog extends Component {
 
 
   changeEyeColor(event) {
-    event.preventDefault()
     console.log(event.target.value)
     this.setState({
       eyeColor: event.target.value
     })
   }
+
+
 
 
   render() {
