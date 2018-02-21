@@ -11,9 +11,10 @@ class App extends Component {
   }
 
   render() {
+
     return (
       <div className="App">
-        
+        <MasterHog offspring={Offspring.offspring} />
       </div>
     )
   }
