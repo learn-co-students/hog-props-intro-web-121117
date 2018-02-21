@@ -16,17 +16,29 @@ class BabyHog extends Component {
   constructor(props) {
     super(props)
     this.state = {
-
+      name: this.props.name,
+      weight: this.props.weight,
+      eyeColor: this.props.eyeColor,
+      imgHeight: this.props.imgHeight,
+      src: imgMapper[this.props.eyeColor]
     }
   }
-
-  selectImg() {
-
+  
+  componentWillReceiveProps(nextProps) {
+    this.setState({src: imgMapper[nextProps.eyeColor]})
   }
-
+  
   changeWeight(event) {
     event.preventDefault()
-
+    if (event.target.id === "increase") {
+      this.setState({
+        imgHeight: this.state.imgHeight + 10
+      })
+    } else {
+      this.setState({
+        imgHeight: this.state.imgHeight - 10
+      })
+    }
   }
 
   render() {
@@ -52,7 +64,7 @@ class BabyHog extends Component {
           </div>
 
 
-          <img src="{/* give correct img source component based on eyecolor prop */}" style={{height: `${this.state.imgHeight}px`}} alt="MasterBlasterJrJr" />
+          <img src={this.state.src} style={{height: `${this.state.imgHeight}px`}} alt="MasterBlasterJrJr" />
 
 
         </li>
