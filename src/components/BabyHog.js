@@ -23,11 +23,11 @@ class BabyHog extends Component {
       src: imgMapper[this.props.eyeColor]
     }
   }
-  
+
   componentWillReceiveProps(nextProps) {
     this.setState({src: imgMapper[nextProps.eyeColor]})
   }
-  
+
   changeWeight(event) {
     event.preventDefault()
     if (event.target.id === "increase") {
@@ -46,7 +46,7 @@ class BabyHog extends Component {
         <li className="hogbabies">
           <h1>{this.state.name}</h1>
           <h3>Weight: {this.state.weight}</h3>
-          <h4>Eye Color: {this.state.eyeColor}</h4>
+          <h4>Eye Color: {this.props.eyeColor}</h4>
           <div className="wrap-crap">
             <Button animated id="increase" onClick={this.changeWeight.bind(this)}>
               <Button.Content id="increase" visible>Increase Weight</Button.Content>

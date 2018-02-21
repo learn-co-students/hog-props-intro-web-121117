@@ -56,7 +56,7 @@ class MasterHog extends Component {
         </div>
         <ul className="hoglist">
           {this.props.offspring.map(baby =>
-            <BabyHog name={baby.name} weight={baby.weight} eyeColor={this.state.eyeColor} imgHeight={200}/>
+            <BabyHog key={baby.id} name={baby.name} weight={baby.weight} eyeColor={this.state.eyeColor} imgHeight={200}/>
           )}
         </ul>
 
