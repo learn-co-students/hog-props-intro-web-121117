@@ -18,11 +18,26 @@ class MasterHog extends Component {
 
   changeEyeColor(event) {
     event.preventDefault()
-
-  }
-
+    if (event.target.value === "glowing") {
+      this.setState({
+        eyeColor: "glowing"
+      })
+    }
+    else if (event.target.value === "blue"){
+      this.setState({
+        eyeColor: "blue"
+      })
+    }
+      else {
+        this.setState({
+          eyeColor: "sun"
+        })
+      }
+    };
 
   render() {
+    let babies = this.props.offspring
+    console.log(babies)
     return (
       <div>
 
@@ -55,14 +70,18 @@ class MasterHog extends Component {
           <img id="master-blaster" src={Master} alt='MasterBlaster' style={{height: 400}}></img>
         </div>
         <ul className="hoglist">
-          {/* render hog babies */}
+          {babies.map( (baby, index) =>
+            <div key={baby.index}>
+              <BabyHog
+                eyeColor={this.state.eyeColor} name={baby.name}
+              />
+            </div>
+            )
+          }
         </ul>
-
       </div>
-
     )
   }
-
 }
 
 export default MasterHog;
